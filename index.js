@@ -19,7 +19,14 @@ try{
     await client.connect();
     const taskCollection = client.db("todo").collection("task");
 
-   
+    // get all task from database 
+    app.get('/tasks', async(req, res) => {
+        const query = {};
+        const result = await taskCollection.find({}).toArray();
+        res.send(result);
+    })
+
+    
 
 } 
 finally{

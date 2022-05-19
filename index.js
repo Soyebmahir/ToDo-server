@@ -26,7 +26,14 @@ try{
         res.send(result);
     })
 
-    
+    // create new task using client front end 
+    app.post('/task', async(req, res) => {
+        const task = req.body;
+        console.log(task);
+        const result = await taskCollection.insertOne(task);
+        res.send(result);
+    })
+  
 
 } 
 finally{
